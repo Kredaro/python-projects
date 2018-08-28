@@ -1,12 +1,15 @@
+import os
 from flask import Flask, flash, render_template, redirect, request
 from bson.objectid import ObjectId
 from datetime import datetime
 from pymongo import MongoClient
 
 app = Flask(__name__)
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient(os.environ['MONGOCLIENT_PORT_27017_TCP_ADDR'],27017) 
 db = client.todo
 
+
+@app.route('/')
 @app.route('/note', methods=['GET'])
 def get_notes():
   notes = []
