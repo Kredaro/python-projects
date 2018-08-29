@@ -19,6 +19,8 @@ git clone the repository
 
 cd into the repository/notebook
 
+chmod +x *.sh
+
 ./INSTALL.sh
 ```
 
